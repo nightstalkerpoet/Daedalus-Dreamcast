@@ -698,7 +698,7 @@ void RDP_GFX_ExecuteTask(OSTask * pTask)
 
 
 	// Check if we need to purge
-	if (g_dwRDPTime - g_dwLastPurgeTimeTime > 5000)
+	if (g_dwRDPTime - g_dwLastPurgeTimeTime > 10000)
 	{
 		TH_PurgeOldTextures();
 		g_dwLastPurgeTimeTime = g_dwRDPTime;
@@ -3736,8 +3736,7 @@ void RDP_GFX_SetOtherMode_L(DWORD dwCmd0, DWORD dwCmd1)
 				break;
 			case 0x0C08: // 1080 Sky
 			case 0x0F0A: // Used LOTS of places
-                /*KOS Zerstört Rendering in Super Mario 64, wenn aktiv*/
-                //g_Renderer->SetAlphaBlendFunc(PVR_BLEND_ONE, PVR_BLEND_ZERO);
+                g_Renderer->SetAlphaBlendFunc(PVR_BLEND_ONE, PVR_BLEND_ZERO);
 				break;
 			case 0xC810: // Blends fog
 			case 0xC811: // Blends fog
