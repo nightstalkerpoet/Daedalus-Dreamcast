@@ -21,7 +21,7 @@ OBJS = $(ASOBJ) $(COBJ) $(CPPOBJ)
 # This shouldn't be needed, unless you're including things out of the src
 # directory with #include <file.h> instead of #include "file.h". But, since you
 # had this here before effectively, it shouldn't hurt to include it.
-KOS_CFLAGS += -I.
+KOS_CFLAGS += -I -O2 -ffast-math
 
 # This list of libraries taken directly from your old Makefile, with ones you
 # definitely don't need removed from it. I obviously can't comment on whatever
